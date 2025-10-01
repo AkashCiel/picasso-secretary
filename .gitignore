@@ -34,3 +34,8 @@ next-env.d.ts
 
 # Generated images (local testing)
 /generated-images
+
+# Test scripts and output
+test-*.js
+/test-output
+/test-output-all

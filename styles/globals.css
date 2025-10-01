@@ -56,8 +56,9 @@ textarea:focus {
 }
 
 .template-options {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 }
 
 .template-options label {
@@ -93,4 +94,91 @@ button:disabled {
   padding: 1rem;
   background: #2A2928;
   border-radius: 4px;
+}
+
+/* Image Preview Styles */
+.image-preview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #2A2928;
+  border-radius: 8px;
+  border: 1px solid #3E4144;
+}
+
+.image-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.image-preview-header h3 {
+  margin: 0;
+  color: #F5F2ED;
+  font-weight: 500;
+}
+
+.download-all-btn {
+  padding: 0.5rem 1rem;
+  background: #8B7355;
+  color: #1C1B1A;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.download-all-btn:hover:not(:disabled) {
+  background: #9A8265;
+}
+
+.download-all-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.image-container {
+  position: relative;
+  background: #1C1B1A;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #3E4144;
+}
+
+.generated-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.download-btn {
+  padding: 0.75rem 1rem;
+  background: #3E4144;
+  color: #F5F2ED;
+  border: 1px solid #8B7355;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  background: #8B7355;
+  color: #1C1B1A;
 }
