@@ -1,20 +1,36 @@
-// Placeholder for image generation endpoint
+const ImageGenerator = require('../../lib/image-generator');
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' })
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    // Will be implemented with image generation logic
-    const { text, template } = req.body
+    const { text, template = 'template1' } = req.body;
     
-    // TODO: Generate image
-    // TODO: Upload to Supabase
-    // TODO: Send email
+    if (!text || text.trim().length === 0) {
+      return res.status(400).json({ success: false, message: 'Text is required' });
+    }
     
-    res.status(200).json({ success: true, message: 'Image sent successfully' })
+    // Generate images
+    const imageGenerator = new ImageGenerator();
+    const imageBuffers = await imageGenerator.generateImage(text, template);
+    
+    // Convert all images to base64
+    const base64Images = imageBuffers.map((buffer, index) => ({
+      id: index + 1,
+      data: buffer.toString('base64'),
+      mimeType: 'image/png'
+    }));
+    
+    res.status(200).json({ 
+      success: true, 
+      message: `Generated ${imageBuffers.length} image(s)`,
+      imageCount: imageBuffers.length,
+      images: base64Images
+    });
   } catch (error) {
-    console.error('Error generating image:', error)
-    res.status(500).json({ success: false, message: 'Error generating image' })
+    console.error('Error generating image:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 }
