@@ -1,26 +1,28 @@
 // Typography configuration for all templates
+import { COLORS, FONTS, LAYOUT } from './constants.js';
+
 const typographyConfig = {
   template1: {
     font: {
-      family: 'Jost Medium',
+      family: FONTS.FAMILIES.JOST_MEDIUM,
       size: 42,
-      lineHeight: 1.5,
-      color: '#F5F2ED',
-      opacity: 0.85
+      lineHeight: LAYOUT.LINE_HEIGHT,
+      color: COLORS.PRIMARY_TEXT,
+      opacity: LAYOUT.TEXT_OPACITY
     },
     boldFont: {
-      family: 'Jost Bold',
+      family: FONTS.FAMILIES.JOST_BOLD,
       size: 42,
-      lineHeight: 1.5,
-      color: '#F5F2ED',
-      opacity: 0.85
+      lineHeight: LAYOUT.LINE_HEIGHT,
+      color: COLORS.PRIMARY_TEXT,
+      opacity: LAYOUT.TEXT_OPACITY
     },
     layout: {
-      maxWidth: 0.7, // 70% of canvas width
-      marginTop: 0.35, // Rule of thirds positioning
+      maxWidth: LAYOUT.MAX_WIDTH_RATIO,
+      marginTop: LAYOUT.MARGIN_TOP_RATIO,
       textAlign: 'center'
     }
   }
 };
 
-module.exports = typographyConfig;
+export default typographyConfig;
