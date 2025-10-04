@@ -1,0 +1,194 @@
+:root {
+  --color-primary-text: #F5F2ED;
+  --color-accent: #8B7355;
+  --color-accent-hover: #9A8265;
+  --color-background: #1C1B1A;
+  --color-secondary-background: #2A2928;
+  --color-border: #3E4144;
+  --color-border-focus: #8B7355;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--color-background);
+  color: var(--color-primary-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  padding: 2rem;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-secondary-background);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-text);
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+}
+
+.template-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.template-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.template-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+button {
+  padding: 1rem 2rem;
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--color-accent-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-secondary-background);
+  border-radius: 4px;
+}
+
+/* Image Preview Styles */
+.image-preview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-secondary-background);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.image-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.image-preview-header h3 {
+  margin: 0;
+  color: var(--color-primary-text);
+  font-weight: 500;
+}
+
+.download-all-btn {
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.download-all-btn:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.download-all-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.image-container {
+  position: relative;
+  background: var(--color-background);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.generated-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.download-btn {
+  padding: 0.75rem 1rem;
+  background: var(--color-border);
+  color: var(--color-primary-text);
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-background);
+}
