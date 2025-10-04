@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ImagePreview from './ImagePreview'
 import TemplateService from '../../backend/services/template-service.js'
-import { API } from '../config/constants.js'
+import { API } from '../../shared/constants/index.js'
 
 export default function QuoteForm() {
   const [text, setText] = useState('')

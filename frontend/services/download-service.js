@@ -1,5 +1,5 @@
 // Client-side download service for images
-import { DOWNLOAD } from '../config/constants.js';
+import { DOWNLOAD } from '../../shared/constants/index.js';
 
 class DownloadService {
   static downloadImage(imageData, filename) {
