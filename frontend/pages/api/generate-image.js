@@ -1,4 +1,5 @@
-const ImageGenerator = require('../../lib/image-generator');
+import ImageGenerator from '../../../backend/services/image-generator.js';
+import { handleApiError, validateText, validateTemplate } from '../../../backend/errors/error-handler.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -8,9 +9,9 @@ export default async function handler(req, res) {
   try {
     const { text, template = 'template1' } = req.body;
     
-    if (!text || text.trim().length === 0) {
-      return res.status(400).json({ success: false, message: 'Text is required' });
-    }
+    // Validate input
+    validateText(text);
+    validateTemplate(template);
     
     // Generate images
     const imageGenerator = new ImageGenerator();
@@ -30,7 +31,6 @@ export default async function handler(req, res) {
       images: base64Images
     });
   } catch (error) {
-    console.error('Error generating image:', error);
-    res.status(500).json({ success: false, message: error.message });
+    return handleApiError(error, res);
   }
 }

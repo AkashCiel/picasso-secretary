@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import DownloadService from '../lib/download-service';
+import DownloadService from '../services/download-service.js';
 
 export default function ImagePreview({ images, template }) {
   const [downloading, setDownloading] = useState(false);

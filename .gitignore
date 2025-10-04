@@ -9,6 +9,7 @@
 # Next.js
 /.next/
 /out/
+frontend/.next/
 
 # Production
 /build
@@ -39,3 +40,7 @@ next-env.d.ts
 test-*.js
 /test-output
 /test-output-all
+
+# Additional font directories (kept for future use)
+/Crimson_Text/
+/Jost/

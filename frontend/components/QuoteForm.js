@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import ImagePreview from './ImagePreview'
+import TemplateService from '../../backend/services/template-service.js'
+import { API } from '../../shared/constants/index.js'
 
 export default function QuoteForm() {
   const [text, setText] = useState('')
@@ -15,10 +17,10 @@ export default function QuoteForm() {
     setGeneratedImages([])
 
     try {
-      const response = await fetch('/api/generate-image', {
-        method: 'POST',
+      const response = await fetch(API.ENDPOINTS.GENERATE_IMAGE, {
+        method: API.METHODS.POST,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': API.HEADERS.CONTENT_TYPE,
         },
         body: JSON.stringify({ text, template }),
       })
@@ -51,14 +53,7 @@ export default function QuoteForm() {
       <div className="template-selector">
         <label>Select Template:</label>
         <div className="template-options">
-          {[
-            { value: 'template1', label: 'Template 1' },
-            { value: 'template2', label: 'Template 2' },
-            { value: 'template3', label: 'Template 3' },
-            { value: 'template4', label: 'Template 4' },
-            { value: 'template5', label: 'Template 5' },
-            { value: 'template6', label: 'Template 6' }
-          ].map((t) => (
+          {TemplateService.getAllTemplates().map((t) => (
             <label key={t.value}>
               <input
                 type="radio"

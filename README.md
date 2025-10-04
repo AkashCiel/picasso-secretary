@@ -10,6 +10,25 @@ A web service that automatically places quotes on template images with predefine
 - 30-day automatic cleanup
 - Optimized for Instagram (1080x1080)
 
+## Project Structure
+
+This project follows a clear separation between frontend and backend concerns:
+
+```
+picassos-secretary/
+├── frontend/          # 🎨 Next.js Frontend (UI, components, pages)
+├── backend/           # ⚙️ Backend Services (business logic, processing)
+├── shared/            # 🔄 Shared Code (constants, types)
+├── public/            # 📁 Static Assets (fonts, templates, images)
+└── docs/              # 📚 Documentation
+```
+
+**Key Questions Answered:**
+- **Is there a frontend and a backend?** → Yes, clearly separated in `/frontend/` and `/backend/`
+- **Why are service files inside lib?** → They're now properly organized by purpose in `/backend/services/`
+
+See [Architecture Documentation](./docs/architecture.md) for detailed information.
+
 ## Setup
 
 1. Install dependencies:
@@ -37,7 +56,7 @@ A web service that automatically places quotes on template images with predefine
 - Style: Dark, minimalist backgrounds as per design brief
 
 ## Typography Settings
-- Main Quote: Futura PT Light
-- Attribution: Garamond Italic
+- Main Quote: Jost Medium
+- Bold Text: Jost Bold
 - Text Color: #F5F2ED
 - Accent Color: #8B7355
